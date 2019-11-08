@@ -3,6 +3,7 @@ package com.amolsoftwares.rollerdice
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import kotlin.random.Random
@@ -13,11 +14,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnRoll: Button =
-            findViewById(R.id.roll_btn) //This way we can get the tbn ref in kotlin
-        //btnRoll.text = "Lets Roll a dice" //This will change the btn txt
+        val btnRoll: Button = findViewById(R.id.roll_btn)
         btnRoll.setOnClickListener {
-            //Toast.makeText(this, "This btn is cliked", Toast.LENGTH_SHORT).show() //This is toast
 
             rollDice() //This is kotlin function or method where declared
 
@@ -25,11 +23,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rollDice() {
-        val txtResult: TextView = findViewById(R.id.result_txt)
 
+        val diceImage : ImageView = findViewById(R.id.dice_img)
         val randomInt = Random.nextInt(6) + 1  //get Random Number 0 to 5 and add 1 to it
-
-        txtResult.text = randomInt.toString()
+        val drawableRes = when(randomInt){
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            6 -> R.drawable.dice_6
+            else -> R.drawable.empty_dice
+        }
+        diceImage.setImageResource(drawableRes)
 
     }
 }
