@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,7 +26,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun rollDice() {
         val txtResult: TextView = findViewById(R.id.result_txt)
-        txtResult.text = "Dice Rolled!" //This will change the text of TextView when btn is clicked.
+
+        val randomInt = Random.nextInt(6) + 1  //get Random Number 0 to 5 and add 1 to it
+
+        txtResult.text = randomInt.toString()
 
     }
 }
