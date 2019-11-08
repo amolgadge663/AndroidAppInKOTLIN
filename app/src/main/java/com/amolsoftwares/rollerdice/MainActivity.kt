@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
             findViewById(R.id.roll_btn) //This way we can get the tbn ref in kotlin
         //btnRoll.text = "Lets Roll a dice" //This will change the btn txt
         btnRoll.setOnClickListener {
-            Toast.makeText(this, "This btn is cliked", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "This btn is cliked", Toast.LENGTH_SHORT).show() //This is toast
 
         }
     }
